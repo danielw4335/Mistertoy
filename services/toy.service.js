@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { utilService } from './util.service.js'
 
-const PAGE_SIZE = 5
+const PAGE_SIZE = 10
 const toys = utilService.readJsonFile('data/toy.json')
 
 export const toyService = {
@@ -13,10 +13,13 @@ export const toyService = {
 
 function query(filterBy = {}) {
     let filteredToys = toys
-
+    console.log(' query filterBy:', filterBy)
     if (filterBy.txt) {
         const regExp = new RegExp(filterBy.txt, 'i')
         filteredToys = filteredToys.filter(toy => regExp.test(toy.name))
+    }
+    if (filterBy.maxPrice) {
+        filteredToys = toys.filter(toy => toy.price <= filterBy.maxPrice)
     }
     if (filterBy.inStock) {
         filteredToys = filteredToys.filter(
@@ -29,18 +32,19 @@ function query(filterBy = {}) {
         )
     }
 
-    // const sortBy = filterBy.sortBy
+    const sortBy = filterBy.sortBy
 
-    // if (sortBy.type) {
-    //     filteredToys.sort((toy1, toy2) => {
-    //         const sortDirection = +sortBy.sortDir
-    //         if (sortBy.type === 'name') {
-    //             return toy1.name.localeCompare(toy2.name) * sortDirection
-    //         } else if (sortBy.type === 'price' || sortBy.type === 'createdAt') {
-    //             return (toy1[sortBy.type] - toy2[sortBy.type]) * sortDirection
-    //         }
-    //     })
-    // }
+    if (sortBy.type) {
+        console.log(' query sortBy.type:', sortBy.type)
+        filteredToys.sort((toy1, toy2) => {
+            const sortDirection = +sortBy.sortDir
+            if (sortBy.type === 'name') {
+                return toy1.name.localeCompare(toy2.name) * sortDirection
+            } else if (sortBy.type === 'price' || sortBy.type === 'createdAt') {
+                return (toy1[sortBy.type] - toy2[sortBy.type]) * sortDirection
+            }
+        })
+    }
 
     const filteredToysLength = filteredToys.length
 
@@ -50,9 +54,9 @@ function query(filterBy = {}) {
     }
 
     return Promise.resolve(getMaxPage(filteredToysLength))
-    .then(maxPage => {
-        return { toys: filteredToys, maxPage }
-    })
+        .then(maxPage => {
+            return { toys: filteredToys, maxPage }
+        })
 }
 
 function get(toyId) {
