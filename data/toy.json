@@ -272,7 +272,7 @@
     {
         "_id": "r0026",
         "name": "Fun Car 775",
-        "price": 55.0,
+        "price": 55,
         "labels": [
             "Doll",
             "Art",
@@ -491,7 +491,7 @@
     {
         "_id": "r0046",
         "name": "Super Kitchen 264",
-        "price": 140.0,
+        "price": 140,
         "labels": [
             "Outdoor"
         ],
@@ -934,7 +934,7 @@
     {
         "_id": "r0086",
         "name": "Super Puzzle 295",
-        "price": 71.0,
+        "price": 71,
         "labels": [
             "Box game",
             "Puzzle"
