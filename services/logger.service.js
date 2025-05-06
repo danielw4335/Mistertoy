@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-export const loggerService = {
+export const logger = {
     debug(...args) {
         doLog('DEBUG', ...args)
     },
