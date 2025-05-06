@@ -72,9 +72,7 @@ function remove(toyId) {
     return _saveToysToFile()
 }
 
-
-
-function save(toy) {
+async function save(toy) {
     if (toy._id) {
         const idx = toys.findIndex(currToy => currToy._id === toy._id)
         toys[idx] = { ...toys[idx], ...toy }

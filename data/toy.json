@@ -1,8 +1,8 @@
 [
     {
         "_id": "r0001",
-        "name": "Glow Helicopter 631",
-        "price": 118.96,
+        "name": "ssss",
+        "price": 128.96,
         "labels": [
             "Doll",
             "Box game"
@@ -13,7 +13,7 @@
     {
         "_id": "r0002",
         "name": "Crazy Train 145",
-        "price": 15.05,
+        "price": 23.05,
         "labels": [
             "Puzzle",
             "On wheels"
@@ -29,27 +29,6 @@
             "Outdoor"
         ],
         "createdAt": 1708334318733,
-        "inStock": true
-    },
-    {
-        "_id": "r0004",
-        "name": "Glow Puzzle 349",
-        "price": 25.3,
-        "labels": [
-            "Box game"
-        ],
-        "createdAt": 1694078318733,
-        "inStock": false
-    },
-    {
-        "_id": "r0005",
-        "name": "Mini Kitchen 890",
-        "price": 105.38,
-        "labels": [
-            "Outdoor",
-            "Puzzle"
-        ],
-        "createdAt": 1664875118733,
         "inStock": true
     },
     {
